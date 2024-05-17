@@ -8,6 +8,11 @@ try:
 except:
     positions = []
 
+c = open("coord.txt", "w+")
+if len(positions) > 0:
+    for i, pos in enumerate(positions):
+        c.write(str(pos) + ", parked" + "\n")
+    c.flush()
 def mouse_click(event, x, y, flags, param):
     if event == cv2.EVENT_LBUTTONDOWN:
         positions.append((x, y))

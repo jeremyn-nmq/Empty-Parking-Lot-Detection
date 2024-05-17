@@ -7,8 +7,7 @@ width, height = 105, 43
 cap = cv2.VideoCapture('data/carPark.mp4')
 with open('data/carParkPositions', 'rb') as handle:
     positions = pickle.load(handle)
-
-
+c = open("coord.txt", "w+")
 def check_parking_space(image_dilate, image):
     for pos in positions:
         x, y = pos
@@ -17,6 +16,9 @@ def check_parking_space(image_dilate, image):
         cvzone.putTextRect(image, str(count), (x, y + height - 2), scale=1, thickness=2, offset=0)
 
         if count > 4350:
+            lines = c.readlines()
+            for line in lines:
+                print(line)
             color = (0, 255, 0)
             thickness = 4
         else:
@@ -26,8 +28,8 @@ def check_parking_space(image_dilate, image):
 
 
 while True:
-    if cap.get(cv2.CAP_PROP_POS_FRAMES) == cap.get(cv2.CAP_PROP_FRAME_COUNT):
-        cap.set(cv2.CAP_PROP_POS_FRAMES, 0)
+    # if cap.get(cv2.CAP_PROP_POS_FRAMES) == cap.get(cv2.CAP_PROP_FRAME_COUNT):
+    #     cap.set(cv2.CAP_PROP_POS_FRAMES, 0)
 
     success, image = cap.read()
     image_gray = cv2.cvtColor(image, cv2.COLOR_BGR2GRAY)
