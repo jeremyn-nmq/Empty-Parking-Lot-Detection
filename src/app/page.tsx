@@ -21,7 +21,7 @@ const Home: React.FC = () => {
             <h1>Home</h1>
             <button onClick={handleDataRequest}>Get Data</button>
             {parkingMap.length > 0 && (<>
-                <h2> Parking Map Json Data: <i>{parkingMap ?? "Not available"}</i></h2>
+                <h2> Parking Map Json Data: <i>{JSON.stringify(parkingMap) ?? "Not available"}</i></h2>
                 <h2> The closest lot available is marked with yellow, other vacant lots are marked with green</h2>
                 <img
                     src={macbookIphone.src}
