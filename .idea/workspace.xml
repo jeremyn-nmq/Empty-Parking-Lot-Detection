@@ -4,10 +4,13 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="db91640c-53a4-4d5f-94c5-1ae20f6a5fdf" name="Changes" comment="Update add button to fetch data">
+    <list default="true" id="db91640c-53a4-4d5f-94c5-1ae20f6a5fdf" name="Changes" comment="Update env">
+      <change afterPath="$PROJECT_DIR$/client/.env.production" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.gitignore" beforeDir="false" afterPath="$PROJECT_DIR$/.gitignore" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/client/next.config.mjs" beforeDir="false" afterPath="$PROJECT_DIR$/client/next.config.mjs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/client/next.config.mjs" beforeDir="false" afterPath="$PROJECT_DIR$/client/next.config.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/client/package-lock.json" beforeDir="false" afterPath="$PROJECT_DIR$/client/package-lock.json" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/client/package.json" beforeDir="false" afterPath="$PROJECT_DIR$/client/package.json" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -40,7 +43,7 @@
     "RunOnceActivity.OpenProjectViewOnStart": "true",
     "RunOnceActivity.ShowReadmeOnStart": "true",
     "kotlin-language-version-configured": "true",
-    "last_opened_file_path": "/Users/jeremyn/jeremyn-coding/MITIU/advanced-computer-graphics/Empty-Parking-Lot-Detection",
+    "last_opened_file_path": "/Users/jeremyn/jeremyn-coding/MITIU/advanced-computer-graphics/Empty-Parking-Lot-Detection/client",
     "node.js.detected.package.eslint": "true",
     "node.js.detected.package.tslint": "true",
     "node.js.selected.package.eslint": "(autodetect)",
@@ -54,6 +57,9 @@
   }
 }]]></component>
   <component name="RecentsManager">
+    <key name="CopyFile.RECENT_KEYS">
+      <recent name="$PROJECT_DIR$/client" />
+    </key>
     <key name="MoveFile.RECENT_KEYS">
       <recent name="$PROJECT_DIR$/server/data" />
       <recent name="$PROJECT_DIR$/server" />
@@ -72,7 +78,7 @@
       <updated>1714131365833</updated>
       <workItem from="1714131366879" duration="3520000" />
       <workItem from="1716019509477" duration="851000" />
-      <workItem from="1716020370903" duration="6579000" />
+      <workItem from="1716020370903" duration="7731000" />
     </task>
     <task id="LOCAL-00001" summary="Update add frontend and deployment">
       <option name="closed" value="true" />
@@ -98,7 +104,15 @@
       <option name="project" value="LOCAL" />
       <updated>1716026787641</updated>
     </task>
-    <option name="localTasksCounter" value="4" />
+    <task id="LOCAL-00004" summary="Update env">
+      <option name="closed" value="true" />
+      <created>1716027337032</created>
+      <option name="number" value="00004" />
+      <option name="presentableId" value="LOCAL-00004" />
+      <option name="project" value="LOCAL" />
+      <updated>1716027337032</updated>
+    </task>
+    <option name="localTasksCounter" value="5" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -120,6 +134,7 @@
     <option name="CHECK_NEW_TODO" value="false" />
     <MESSAGE value="Update add frontend and deployment" />
     <MESSAGE value="Update add button to fetch data" />
-    <option name="LAST_COMMIT_MESSAGE" value="Update add button to fetch data" />
+    <MESSAGE value="Update env" />
+    <option name="LAST_COMMIT_MESSAGE" value="Update env" />
   </component>
 </project>
