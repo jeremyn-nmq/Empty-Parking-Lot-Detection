@@ -1,9 +1,13 @@
 import React, {useState} from "react";
+import {BASE_API_URL} from "@/utils/constants";
 function index() {
     const [parkingMap, setParkingMap] = useState([])
 
     const handleDataRequest = () => {
-        fetch('http://localhost:3005/api/getParkingMap')
+        if (!BASE_API_URL) {
+            return null;
+        }
+        fetch(`${BASE_API_URL}/api/getParkingMap`)
         .then(response => response.json())
         .then(data => setParkingMap(data))
     }
