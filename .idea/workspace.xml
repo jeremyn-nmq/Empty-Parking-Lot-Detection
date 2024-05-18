@@ -5,11 +5,10 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="db91640c-53a4-4d5f-94c5-1ae20f6a5fdf" name="Changes" comment="">
-      <change beforePath="$PROJECT_DIR$/.gitignore" beforeDir="false" afterPath="$PROJECT_DIR$/.gitignore" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.env" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.env.production" beforeDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/package.json" beforeDir="false" afterPath="$PROJECT_DIR$/package.json" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/postcss.config.mjs" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/requirements.txt" beforeDir="false" afterPath="$PROJECT_DIR$/requirements.txt" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/api/vercel.json" beforeDir="false" afterPath="$PROJECT_DIR$/api/vercel.json" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -77,7 +76,7 @@
       <updated>1714131365833</updated>
       <workItem from="1714131366879" duration="3520000" />
       <workItem from="1716019509477" duration="851000" />
-      <workItem from="1716020370903" duration="11873000" />
+      <workItem from="1716020370903" duration="12262000" />
     </task>
     <task id="LOCAL-00001" summary="Update add frontend and deployment">
       <option name="closed" value="true" />
@@ -151,7 +150,15 @@
       <option name="project" value="LOCAL" />
       <updated>1716031953274</updated>
     </task>
-    <option name="localTasksCounter" value="10" />
+    <task id="LOCAL-00010" summary="Edit build">
+      <option name="closed" value="true" />
+      <created>1716032755308</created>
+      <option name="number" value="00010" />
+      <option name="presentableId" value="LOCAL-00010" />
+      <option name="project" value="LOCAL" />
+      <updated>1716032755308</updated>
+    </task>
+    <option name="localTasksCounter" value="11" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -178,6 +185,7 @@
     <MESSAGE value="Update structure" />
     <MESSAGE value="Remove Readme" />
     <MESSAGE value="Remove PMPM" />
-    <option name="LAST_COMMIT_MESSAGE" value="Remove PMPM" />
+    <MESSAGE value="Edit build" />
+    <option name="LAST_COMMIT_MESSAGE" value="Edit build" />
   </component>
 </project>
