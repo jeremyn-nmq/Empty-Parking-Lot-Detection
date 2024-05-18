@@ -60,6 +60,7 @@ def check_parking_space(image_dilate, image, start_point):
     return parking_map
 
 def save_parking_map_json(parking_map, filename="./api/result/parking_lot_map.json"):
+    parking_map = [[0] + row for row in parking_map]
     with open(filename, 'w') as file:
         json.dump(parking_map, file)
 

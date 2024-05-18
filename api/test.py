@@ -6,10 +6,6 @@ def draw_from_json(filename, output_image_path, width, height):
     with open(filename, 'r') as file:
         parking_lot_map = json.load(file)
 
-    parking_lot_map = [[0] + row for row in parking_lot_map]
-    with open(filename, 'w') as file:
-        json.dump(parking_lot_map, file)
-
     # Create an empty black image
     image_height = len(parking_lot_map) * height
     image_width = len(parking_lot_map[0]) * width
