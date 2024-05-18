@@ -2,16 +2,22 @@ import cv2
 import pickle
 import cvzone
 import numpy as np
+import json
 
-with open('./api/data/carParkPositions', 'rb') as handle:
-    positions = pickle.load(handle)
-
-width, height = 105, 43
 image_path = './api/data/carParkImg.png'
 image = cv2.imread(image_path)
 
-map_height, map_width, _ = image.shape
-parking_map = [[0 for _ in range(map_width)] for _ in range(map_height)]
+width, height = 105, 43
+with open('./api/data/carParkPositions', 'rb') as handle:
+    positions = pickle.load(handle)
+
+start_point = (0, 0)
+max_x = max(pos[0] for pos in positions) + width
+max_y = max(pos[1] for pos in positions) + height
+grid_width = max_x // width + 1
+grid_height = max_y // height + 1
+
+parking_map = [[0] * grid_width for _ in range(grid_height)]
 
 def calculate_distance(point1, point2):
     return np.sqrt((point1[0] - point2[0]) ** 2 + (point1[1] - point2[1]) ** 2)
@@ -19,39 +25,43 @@ def calculate_distance(point1, point2):
 def check_parking_space(image_dilate, image, start_point):
     min_distance = float('inf')
     nearest_spot = None
+    vacant_spots = []
 
     for index, pos in enumerate(positions):
         x, y = pos
         center_pos = (x + width // 2, y + height // 2)
         distance = calculate_distance(start_point, center_pos)
-        image_crop = image_dilate[y:y+height, x:x+width]
+
+        image_crop = image_dilate[y:y + height, x:x + width]
         count = cv2.countNonZero(image_crop)
         cvzone.putTextRect(image, str(count), (x, y + height - 2), scale=1, thickness=2, offset=0)
 
         if count > 4350:
-            color = (0, 255, 0)
-            thickness = 3
-            for i in range(x, x + width):
-                for j in range(y, y + height):
-                    parking_map[j][i] = 3
-            if distance < min_distance:
-                min_distance = distance
-                nearest_spot = (x, y)
+            vacant_spots.append((pos, distance))
+            parking_map[y // height][x // width] = 3
         else:
-            color = (0, 0, 255)
-            thickness = 2
-            for i in range(x, x + width):
-                for j in range(y, y + height):
-                    parking_map[j][i] = 2
+            cv2.rectangle(image, pos, (pos[0] + width, pos[1] + height), (0, 0, 255), 2)
+            parking_map[y // height][x // width] = 2
 
-        cv2.rectangle(image, (x, y), (x + width, y + height), color, thickness)
+    for spot, dist in vacant_spots:
+        if dist < min_distance:
+            min_distance = dist
+            nearest_spot = spot
 
-    if nearest_spot:
-        x, y = nearest_spot
-        cv2.rectangle(image, (x, y), (x + width, y + height), (0, 255, 255), 5)
-        for i in range(x, x + width):
-            for j in range(y, y + height):
-                parking_map[j][i] = 4
+    for spot, dist in vacant_spots:
+        color = (0, 255, 0)
+        thickness = 4
+        if spot == nearest_spot:
+            color = (0, 255, 255)
+            thickness = 5
+            parking_map[spot[1] // height][spot[0] // width] = 4  # Mark as nearest vacant
+        cv2.rectangle(image, spot, (spot[0] + width, spot[1] + height), color, thickness)
+
+    return parking_map
+
+def save_parking_map_json(parking_map, filename="./api/result/parking_lot_map.json"):
+    with open(filename, 'w') as file:
+        json.dump(parking_map, file)
 
 def detect_parking_spaces():
     global parking_map
@@ -64,13 +74,11 @@ def detect_parking_spaces():
 
     start_point = (0, 0)
     check_parking_space(image_dilate, image, start_point)
+    save_parking_map_json(parking_map)
     return parking_map
 
 if __name__ == '__main__':
     parking_map = detect_parking_spaces()
-    with open("./api/result/parking_map.txt", "w") as file:
-        for row in parking_map:
-            file.write(' '.join(map(str, row)) + '\n')
     cv2.imwrite('./api/result/detectedParkingSpot.png', image)
     cv2.imshow("Parking Map", image)
     cv2.waitKey(0)
