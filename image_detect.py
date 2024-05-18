@@ -53,20 +53,25 @@ def check_parking_space(image_dilate, image, start_point):
             for j in range(y, y + height):
                 parking_map[j][i] = 4
 
-image_gray = cv2.cvtColor(image, cv2.COLOR_BGR2GRAY)
-image_blur = cv2.GaussianBlur(image_gray, (3, 3), 1)
-image_thresh = cv2.adaptiveThreshold(image_blur, 255, cv2.ADAPTIVE_THRESH_GAUSSIAN_C, cv2.THRESH_BINARY, 25, 16)
-image_median = cv2.medianBlur(image_thresh, 5)
-kernel = np.ones((3, 3), np.uint8)
-image_dilate = cv2.dilate(image_median, kernel, iterations=1)
+def detect_parking_spaces():
+    global parking_map
+    image_gray = cv2.cvtColor(image, cv2.COLOR_BGR2GRAY)
+    image_blur = cv2.GaussianBlur(image_gray, (3, 3), 1)
+    image_thresh = cv2.adaptiveThreshold(image_blur, 255, cv2.ADAPTIVE_THRESH_GAUSSIAN_C, cv2.THRESH_BINARY, 25, 16)
+    image_median = cv2.medianBlur(image_thresh, 5)
+    kernel = np.ones((3, 3), np.uint8)
+    image_dilate = cv2.dilate(image_median, kernel, iterations=1)
 
-start_point = (0, 0)
-check_parking_space(image_dilate, image, start_point)
+    start_point = (0, 0)
+    check_parking_space(image_dilate, image, start_point)
+    return parking_map
 
-with open("result/parking_map.txt", "w") as file:
-    for row in parking_map:
-        file.write(' '.join(map(str, row)) + '\n')
-cv2.imwrite('result/detectedParkingSpot.png', image)
-cv2.imshow("Parking Map", image)
-cv2.waitKey(0)
-cv2.destroyAllWindows()
+if __name__ == '__main__':
+    parking_map = detect_parking_spaces()
+    with open("result/parking_map.txt", "w") as file:
+        for row in parking_map:
+            file.write(' '.join(map(str, row)) + '\n')
+    cv2.imwrite('result/detectedParkingSpot.png', image)
+    cv2.imshow("Parking Map", image)
+    cv2.waitKey(0)
+    cv2.destroyAllWindows()
