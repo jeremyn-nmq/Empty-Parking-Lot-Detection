@@ -6,12 +6,12 @@
       "use": "@vercel/python"
     }
   ],
-    "routes": [
-        {
-        "src": "/(.*)",
-        "dest": "index.py"
-        }
-    ],
+  "routes": [
+      {
+      "src": "/(.*)",
+      "dest": "index.py"
+      }
+  ],
   "functions": {
     "api/**/*.py": {
       "excludeFiles": "{.next,*.cache,node_modules,public,app,.git}/**"
