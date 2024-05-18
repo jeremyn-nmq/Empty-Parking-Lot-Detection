@@ -4,11 +4,11 @@ import cvzone
 import numpy as np
 import json
 
-image_path = './api/data/carParkImg.png'
+image_path = './data/carParkImg.png'
 image = cv2.imread(image_path)
 
 width, height = 105, 43
-with open('./api/data/carParkPositions', 'rb') as handle:
+with open('./data/carParkPositions', 'rb') as handle:
     positions = pickle.load(handle)
 
 start_point = (0, 0)
