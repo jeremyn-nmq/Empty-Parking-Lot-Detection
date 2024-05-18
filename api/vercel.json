@@ -13,8 +13,8 @@
         }
     ],
   "functions": {
-    "api/**": {
-      "excludeFiles": "{.next,*.cache,node_modules,public,app, .git}/**"
+    "api/**/*.py": {
+      "excludeFiles": "{.next,*.cache,node_modules,public,app,.git}/**"
     }
   }
 }
