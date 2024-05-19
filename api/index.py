@@ -2,9 +2,9 @@ from flask import Flask, make_response
 from flask_cors import CORS
 import json
 import gzip
-import sys
-sys.path.append('../python')
-from python import image_detect
+# import sys
+# sys.path.append('./python')
+# from python import image_detect
 
 app = Flask(__name__)
 CORS(app)
