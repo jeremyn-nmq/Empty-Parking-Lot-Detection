@@ -1,7 +1,9 @@
 from flask import Flask, make_response, json
 from flask_cors import CORS
 import gzip
-import image_detect
+import sys
+sys.path.append('../python')
+from python import image_detect
 
 app = Flask(__name__)
 CORS(app)
