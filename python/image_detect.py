@@ -80,7 +80,7 @@ def detect_parking_spaces():
 
 if __name__ == '__main__':
     parking_map = detect_parking_spaces()
-    cv2.imwrite('./result/detectedParkingSpot.png', image)
+    # cv2.imwrite('./result/detectedParkingSpot.png', image)
     cv2.imshow("Parking Map", image)
     cv2.waitKey(0)
     cv2.destroyAllWindows()
