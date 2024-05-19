@@ -1,6 +1,7 @@
-from flask import Flask, make_response, json
+from flask import Flask
 from flask_cors import CORS
-import gzip
+import json
+# import gzip
 # import sys
 # sys.path.append('../python')
 # from python import image_detect
@@ -13,12 +14,12 @@ def get_parking_map():
     with open('./result/parking_lot_map.json', 'r') as file:
         parking_map = json.load(file)
     # parking_map = image_detect.detect_parking_spaces()
-    content = gzip.compress(json.dumps(parking_map).encode('utf-8'), 5)
-    response = make_response(content)
-    response.headers['Content-length'] = len(content)
-    response.headers['Content-Encoding'] = 'gzip'
+    # content = gzip.compress(json.dumps(parking_map).encode('utf-8'), 5)
+    # response = make_response(content)
+    # response.headers['Content-length'] = len(content)
+    # response.headers['Content-Encoding'] = 'gzip'
     # print(parking_map)
-    return response
+    return json.dumps(parking_map)
 
 
 if __name__ == '__main__':
