@@ -30,7 +30,7 @@ const Home: React.FC = () => {
                     alt="Picture of parking lot"
                 />
                 <h2>
-                    <a href='https://itch.io/embed-upload/10453501?color=333333'> Click here for the navigation video </a>
+                    <a href='https://itch.io/embed-upload/10457065?color=333333'> Click here for the navigation video </a>
                 </h2>
             </>)}
         </div>
