@@ -1,7 +1,7 @@
 "use client";
 import {useEffect, useState} from "react";
 import {BASE_API_URL} from "../../utils/constants";
-import macbookIphone from './detectedParkingSpot.png';
+import parkingSpot from './detectedParkingSpot.png';
 
 const Home: React.FC = () => {
   const [parkingMap, setParkingMap] = useState([])
@@ -24,7 +24,7 @@ const Home: React.FC = () => {
                 <h2> Parking Map Json Data: <i>{JSON.stringify(parkingMap) ?? "Not available"}</i></h2>
                 <h2> The closest lot available is marked with yellow, other vacant lots are marked with green</h2>
                 <img
-                    src={macbookIphone.src}
+                    src={parkingSpot.src}
                     width={500}
                     height={500}
                     alt="Picture of parking lot"

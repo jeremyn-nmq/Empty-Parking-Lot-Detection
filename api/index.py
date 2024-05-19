@@ -11,7 +11,7 @@ CORS(app)
 
 @app.route('/api/getParkingMap', methods=['GET'])
 def get_parking_map():
-    with open('./result/parking_lot_map.json', 'r') as file:
+    with open('./python/result/parking_lot_map.json', 'r') as file:
         parking_map = json.load(file)
     # parking_map = image_detect.detect_parking_spaces()
     content = gzip.compress(json.dumps(parking_map).encode('utf-8'), 5)

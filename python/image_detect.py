@@ -4,11 +4,11 @@ import cvzone
 import numpy as np
 import json
 
-image_path = './data/carParkImg.png'
+image_path = 'data/carParkImg.png'
 image = cv2.imread(image_path)
 
 width, height = 105, 43
-with open('./data/carParkPositions', 'rb') as handle:
+with open('data/carParkPositions', 'rb') as handle:
     positions = pickle.load(handle)
 
 start_point = (0, 0)
@@ -59,7 +59,7 @@ def check_parking_space(image_dilate, image, start_point):
 
     return parking_map
 
-def save_parking_map_json(parking_map, filename="./result/parking_lot_map.json"):
+def save_parking_map_json(parking_map, filename="result/parking_lot_map.json"):
     parking_map = [[0] + row for row in parking_map]
     with open(filename, 'w') as file:
         json.dump(parking_map, file)
@@ -80,7 +80,7 @@ def detect_parking_spaces():
 
 if __name__ == '__main__':
     parking_map = detect_parking_spaces()
-    # cv2.imwrite('./result/detectedParkingSpot.png', image)
+    cv2.imwrite('result/detectedParkingSpot.png', image)
     cv2.imshow("Parking Map", image)
     cv2.waitKey(0)
     cv2.destroyAllWindows()
